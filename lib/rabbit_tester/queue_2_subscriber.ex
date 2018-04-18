@@ -1,11 +1,6 @@
 defmodule SubscribexExample.Queue2Subscriber do
   use Subscribex.Subscriber
 
-  def start_link do
-    Logger.info("Starting queue 2 subscriber")
-    Subscriber.start_link(__MODULE__)
-  end
-
   def init do
     config = %Config{
       broker: SubscribexExample.Broker,
