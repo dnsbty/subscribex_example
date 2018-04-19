@@ -2,17 +2,23 @@ defmodule SubscribexExample do
   @moduledoc """
   Documentation for SubscribexExample.
   """
+  alias SubscribexExample.Broker
+
+  @exchange "my_exchange"
+  @routing_key "key_1"
 
   @doc """
-  Hello world.
+  Publish the given text to the `queue_1.key` queue
 
   ## Examples
 
-      iex> SubscribexExample.hello
-      :world
+      iex> SubscribexExample.publish("hi")
+      :ok
 
   """
-  def hello do
-    :world
+  def publish(text) do
+    Broker.channel(fn(channel) ->
+      Broker.publish(channel, @exchange, @routing_key, text)
+    end)
   end
 end
