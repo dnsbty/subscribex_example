@@ -10,10 +10,4 @@ config :rabbit_tester, SubscribexExample.Broker,
     port: 5672
   ]
 
-config :rabbit_tester, SubscribexExample.AnotherBroker,
-  rabbit_host: [
-    username: "guest",
-    password: "guest",
-    host: "localhost",
-    port: 5672
-  ]
+config :rabbit_tester, SubscribexExample.AnotherBroker, rabbit_host: "amqp://guest:guest@localhost:5672"
